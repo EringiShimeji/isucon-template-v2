@@ -4,6 +4,7 @@ for config_path in "$@"; do
 	dst_path="$(pwd)/common/${config_path#/}"
 	if [ -e "$config_path" ]; then
 		mkdir -p "$(dirname "$dst_path")"
+		chmod -R 777 "$config_path"
 		if [ -d "$config_path" ]; then
 			sudo cp -auv "$config_path/." "$dst_path"
 		else
